@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MyProfile</string>
+    <string name="aboutMe">About Me</string>
+    <string name="AboutMeText"> Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Vivamus sagittis lacus vel augue laoreet rutrum faucibus. Tityre, tu patulae recubans sub tegmine fagi dolor. Nihil hic munitissimus habendi senatus locus, nihil horum? Integer legentibus erat a ante historiarum dapibus.</string>
+    <string-array name="seasonsList">
+        <item>spring</item>
+        <item>summer</item>
+        <item>autumn</item>
+        <item>winter</item>
+    </string-array>
+    <string name="confirm">Confirm</string>
+    <string name="aboutSpinner">Set Theme To </string>
+
+</resources>
