@@ -6,29 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".SpinnerActivity">
 
-    <Spinner
-        android:id="@+id/spinnerID"
-        android:layout_width="164dp"
-        android:layout_height="71dp"
-        android:layout_marginEnd="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="234dp" />
-
     <Button
         android:id="@+id/confirmBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="270dp"
         android:text="@string/confirm"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="345dp" />
+        style="Widget.AppCompat.Button.Colored"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerID" />
+
+    <Spinner
+        android:id="@+id/spinnerID"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="324dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="39dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/confirmBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/aboutSpinnerID"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/aboutSpinnerID"
+        style="@style/myTextStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
         android:text="@string/aboutSpinner"
         app:layout_constraintEnd_toStartOf="@+id/spinnerID"
-        tools:layout_editor_absoluteY="260dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spinnerID" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,15 +17,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/profile_pic_foreground" />
+        app:srcCompat="@mipmap/profile_pic" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/settingsWheel"
-        android:layout_width="80dp"
-        android:layout_height="56dp"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="369dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitStart"
         app:layout_constraintBottom_toTopOf="@+id/aboutMeTestID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,23 +38,23 @@
         android:id="@+id/aboutMeID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
         android:text="@string/aboutMe"
-        android:textSize="24sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/aboutMeTestID"
         app:layout_constraintEnd_toEndOf="@+id/profilePicID"
         app:layout_constraintStart_toStartOf="@+id/profilePicID"
-        app:layout_constraintTop_toBottomOf="@+id/profilePicID" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePicID"
+        style="@style/myTextStyle" />
 
     <TextView
         android:id="@+id/aboutMeTestID"
+        style="@style/myTextStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="37dp"
         android:layout_marginEnd="37dp"
         android:layout_marginBottom="38dp"
         android:text="@string/AboutMeText"
+        android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
