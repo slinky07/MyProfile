@@ -17,4 +17,5 @@
         <item name="android:focusableInTouchMode">true</item>
         <item name="android:color">#FF5722</item>
     </style>
+
 </resources>

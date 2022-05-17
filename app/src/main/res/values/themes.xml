@@ -12,6 +12,20 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+    </style>
+
+    <style name="Theme.MyProfile.spring">
+        <item name="android:windowBackground">@drawable/spring</item>
+    </style>
+    <style name="Theme.MyProfile.summer">
         <item name="android:windowBackground">@drawable/summer</item>
     </style>
+    <style name="Theme.MyProfile.autumn">
+        <item name="android:windowBackground">@drawable/autumn</item>
+    </style>
+    <style name="Theme.MyProfile.winter">
+        <item name="android:windowBackground">@drawable/winter</item>
+    </style>
+
 </resources>
