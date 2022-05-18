@@ -12,12 +12,17 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class SpinnerActivity extends AppCompatActivity {
+
 //    private  String selected = "spring";
     private Spinner spin;
     private Button btn;
     private int defaultVal = 0;
+    private int selectedPosition = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+//        ThemeUtils.onCreateSetTheme(this, getSavedTheme());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spinner);
 
@@ -50,7 +55,7 @@ public class SpinnerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // set AND cache theme then launch
+                getSharedPreference(selectedPosition);
 
                 launchMain();
             }
@@ -61,6 +66,7 @@ public class SpinnerActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 //                selected = spin.getItemAtPosition(i).toString();
+                selectedPosition = i;
             }
 
             @Override
@@ -77,14 +83,20 @@ public class SpinnerActivity extends AppCompatActivity {
 
     public void getSharedPref() {
         SharedPreferences sharedPreferences = getSharedPreferences(ThemeUtils.getPREF(), MODE_PRIVATE);
-        defaultVal = sharedPreferences.getInt("Theme", defaultVal);
+        defaultVal = sharedPreferences.getInt(ThemeUtils.getSEASON(), defaultVal);
     }
 
-    private void getSharedPreference(int i) {
+    private void getSharedPreference(int position) {
         SharedPreferences sharedPreferences = getSharedPreferences(ThemeUtils.getPREF(), MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt("Theme", ThemeUtils.getRightThemeVal(i));
+        editor.putInt(ThemeUtils.getSEASON(), ThemeUtils.getRightThemeVal(position));
         editor.apply();
 
     }
+
+//    public int getSavedTheme() {
+//        SharedPreferences sharedPreferences = getSharedPreferences(ThemeUtils.getPREF(), MODE_PRIVATE);
+//
+//        return sharedPreferences.getInt(ThemeUtils.getSEASON(), 0 );
+//    }
 }

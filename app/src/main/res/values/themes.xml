@@ -16,15 +16,31 @@
     </style>
 
     <style name="Theme.MyProfile.spring">
+        <item name="colorPrimary">#f6b9ad</item>
+        <item name="colorPrimaryVariant">#7ee9cc</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#ee6f68</item>
+
         <item name="android:windowBackground">@drawable/spring</item>
     </style>
     <style name="Theme.MyProfile.summer">
+        <item name="colorPrimary">#20BBC5</item>
+        <item name="colorPrimaryVariant">#15d2d3</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#276C83</item>
+
         <item name="android:windowBackground">@drawable/summer</item>
     </style>
     <style name="Theme.MyProfile.autumn">
+        <item name="colorPrimary">#FF9800</item>
+        <item name="colorPrimaryVariant">#A50000</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#FFC107</item>
+
         <item name="android:windowBackground">@drawable/autumn</item>
     </style>
     <style name="Theme.MyProfile.winter">
+        <item name="colorPrimary">#97cdff</item>
+        <item name="colorPrimaryVariant">#74a5c3</item>
+        <item name="android:statusBarColor" tools:targetApi="l">#74a5c3</item>
+
         <item name="android:windowBackground">@drawable/winter</item>
     </style>
 

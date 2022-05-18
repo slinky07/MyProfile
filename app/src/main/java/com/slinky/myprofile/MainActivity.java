@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -54,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
 //    );
 
     public int getSavedTheme() {
-        return 6;
+        SharedPreferences sharedPreferences = getSharedPreferences(ThemeUtils.getPREF(), MODE_PRIVATE);
+
+        return sharedPreferences.getInt(ThemeUtils.getSEASON(), 0 );
     }
 
 }
