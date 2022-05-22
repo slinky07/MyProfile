@@ -1,41 +1,23 @@
 package com.slinky.myprofile;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 
 public class ThemeUtils {
 
-    private static final String PREF = "myPreference";
-    private static final String SEASON = "Season";
+    private static final String FILE_NAME = "myPreference";  //Shared Preference fileName
+    private static final String SEASON = "Season";      //Shared Preference key
 
-    private final static int THEME_SPRING = 0;
-    private final static int THEME_SUMMER = 1;
+    private final static int THEME_SPRING = 0;          // index of spinners hardcoded to know which one to get
+    private final static int THEME_SUMMER = 1;          // not good practice, should have done a hashmap with keys maybe
     private final static int THEME_AUTUMN = 2;
     private final static int THEME_WINTER = 3;
 
-
-    public static String getSEASON() {
-        return SEASON;
-    }
-
-    public static String getPREF() {
-        return PREF;
-    }
-
-    public static int getRightThemeVal(int pos) {
-        switch (pos) {
-            case 1:
-                return THEME_SUMMER;
-            case 2:
-                return THEME_AUTUMN;
-            case 3:
-                return THEME_WINTER;
-            default:
-                return THEME_SPRING; // 0 (spring) or >3
-        }
-    }
-
+    /**
+     * method to set the theme. should be called before SUPER call of OnCreate.
+     * @param activity is context to use.
+     * @param preferredTheme is integer saved by SharedPreference which also is index of spinner.
+     */
     public static void onCreateSetTheme(Activity activity, int preferredTheme) {
         switch (preferredTheme) {
             default:
@@ -54,18 +36,28 @@ public class ThemeUtils {
         }
     }
 
+    /**
+     * static method to be used by any activities to store a shared preference.
+     * @param activity  is context to use.
+     * @param position  is integer to save in Shared preference.
+     */
     public static void putSharedPreference(Activity activity, int position) {
-        SharedPreferences sharedPreferences = activity.getSharedPreferences(ThemeUtils.getPREF(), activity.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(FILE_NAME, activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(ThemeUtils.getSEASON(), ThemeUtils.getRightThemeVal(position));
+        editor.putInt(SEASON, position);
         editor.apply();
 
     }
 
-        public static int getSavedTheme(Activity activity) {
-        SharedPreferences sharedPreferences = activity.getSharedPreferences(ThemeUtils.getPREF(), activity.MODE_PRIVATE);
-
-        return sharedPreferences.getInt(ThemeUtils.getSEASON(), 0 );
+    /**
+     * method to get actual saved theme. would not need to duplicate these lines if
+     * would need to be called between multiple activities.
+     * @param activity being context to use.
+     * @return  saved theme, if preference is non-existent send back spring value.
+     */
+    public static int getSavedTheme(Activity activity) {
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(FILE_NAME, activity.MODE_PRIVATE);
+        return sharedPreferences.getInt(SEASON, THEME_SPRING);
     }
 
 

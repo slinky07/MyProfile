@@ -3,7 +3,6 @@ package com.slinky.myprofile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,34 +12,35 @@ import android.widget.Spinner;
 
 public class SpinnerActivity extends AppCompatActivity {
 
-//    private  String selected = "spring";
     private Spinner spin;
     private Button btn;
-    private int defaultVal = 0;
-    private int selectedPosition = 0;
+    private int selectedPosition;
+    private boolean isSpinnerTouched = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-//        ThemeUtils.onCreateSetTheme(this, getSavedTheme());
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spinner);
 
         initID();
-        btnListenner();
+        btnListener();
         initSpinner();
-        spinListenner();
+        spinListener();
 
-        ThemeUtils.getSavedTheme(this);
-//        getSharedPref(); //see if necessary, already has default set
-
+//        selectedPosition = ThemeUtils.getSavedTheme(this);
     }
 
+    /**
+     * init some boring IDs
+     */
     private void initID() {
         spin = findViewById(R.id.spinnerID);
         btn = findViewById(R.id.confirmBtn);
     }
 
+    /**
+     * initialize spinner
+     */
     private void initSpinner() {
         ArrayAdapter<CharSequence> stackAdapter = ArrayAdapter.createFromResource(
                 this,
@@ -51,34 +51,44 @@ public class SpinnerActivity extends AppCompatActivity {
         spin.setAdapter(stackAdapter);
     }
 
-    private void btnListenner() {
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-//                putSharedPreference(selectedPosition);
+    /**
+     * Btn Click Listener, only save preference if something has been saved this round
+     */
+    private void btnListener() {
+        btn.setOnClickListener(view -> {
+            if (isSpinnerTouched) {
                 ThemeUtils.putSharedPreference(SpinnerActivity.this, selectedPosition);
-
-                launchMain();
             }
+            isSpinnerTouched = false;
+            launchMain();
         });
     }
-    private void spinListenner() {
+
+    /**
+     * Spinner onSelect listener
+     */
+    private void spinListener() {
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                selected = spin.getItemAtPosition(i).toString();
-                selectedPosition = i;
+            public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
+                if (pos != 0) {
+                    selectedPosition = pos;
+                    isSpinnerTouched = true;
+                } else {
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                // booooooo
+                isSpinnerTouched = false;
             }
         });
     }
-    private void launchMain() {
 
+    /**
+     * send to MainActivity
+     */
+    private void launchMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
