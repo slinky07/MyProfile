@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MyProfile</string>
     <string name="aboutMe">About Me</string>
-    <string name="AboutMeText"> Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Vivamus sagittis lacus vel augue laoreet rutrum faucibus. Tityre, tu patulae recubans sub tegmine fagi dolor. Nihil hic munitissimus habendi senatus locus, nihil horum? Integer legentibus erat a ante historiarum dapibus.</string>
+    <string name="AboutMeText"> My name is Sir Francis Sauve the 4th, Duke of Saint-Anicet. I come from along line of farmers and maple-syrup makers, no cap. There is great responsibility being the future head of the family Maple Syrup-making business. I came into computer science to help bring to the cloud this business. My dream to open the first Maple-Syrup business entirely on the cloud and to sell them as NFT. Generations from now, people will still be talking about Sir Francis Sauve the 4th, Duke of Saint Anicet, who has revolutionized the maple-syrup business.</string>
     <string-array name="seasonsList">
         <item>spring</item>
         <item>summer</item>

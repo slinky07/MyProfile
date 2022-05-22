@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ThemeUtils.onCreateSetTheme(this, getSavedTheme());
+        ThemeUtils.onCreateSetTheme(this, ThemeUtils.getSavedTheme(this));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //    );
 
-    public int getSavedTheme() {
-        SharedPreferences sharedPreferences = getSharedPreferences(ThemeUtils.getPREF(), MODE_PRIVATE);
-
-        return sharedPreferences.getInt(ThemeUtils.getSEASON(), 0 );
-    }
+//    public int getSavedTheme() {
+//        SharedPreferences sharedPreferences = getSharedPreferences(ThemeUtils.getPREF(), MODE_PRIVATE);
+//
+//        return sharedPreferences.getInt(ThemeUtils.getSEASON(), 0 );
+//    }
 
 }

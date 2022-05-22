@@ -54,6 +54,19 @@ public class ThemeUtils {
         }
     }
 
+    public static void putSharedPreference(Activity activity, int position) {
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(ThemeUtils.getPREF(), activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(ThemeUtils.getSEASON(), ThemeUtils.getRightThemeVal(position));
+        editor.apply();
+
+    }
+
+        public static int getSavedTheme(Activity activity) {
+        SharedPreferences sharedPreferences = activity.getSharedPreferences(ThemeUtils.getPREF(), activity.MODE_PRIVATE);
+
+        return sharedPreferences.getInt(ThemeUtils.getSEASON(), 0 );
+    }
 
 
 }

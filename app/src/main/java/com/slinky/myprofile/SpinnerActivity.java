@@ -31,7 +31,8 @@ public class SpinnerActivity extends AppCompatActivity {
         initSpinner();
         spinListenner();
 
-        getSharedPref(); //see if necessary, already has default set
+        ThemeUtils.getSavedTheme(this);
+//        getSharedPref(); //see if necessary, already has default set
 
     }
 
@@ -55,7 +56,8 @@ public class SpinnerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                getSharedPreference(selectedPosition);
+//                putSharedPreference(selectedPosition);
+                ThemeUtils.putSharedPreference(SpinnerActivity.this, selectedPosition);
 
                 launchMain();
             }
@@ -80,23 +82,4 @@ public class SpinnerActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
-    public void getSharedPref() {
-        SharedPreferences sharedPreferences = getSharedPreferences(ThemeUtils.getPREF(), MODE_PRIVATE);
-        defaultVal = sharedPreferences.getInt(ThemeUtils.getSEASON(), defaultVal);
-    }
-
-    private void getSharedPreference(int position) {
-        SharedPreferences sharedPreferences = getSharedPreferences(ThemeUtils.getPREF(), MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(ThemeUtils.getSEASON(), ThemeUtils.getRightThemeVal(position));
-        editor.apply();
-
-    }
-
-//    public int getSavedTheme() {
-//        SharedPreferences sharedPreferences = getSharedPreferences(ThemeUtils.getPREF(), MODE_PRIVATE);
-//
-//        return sharedPreferences.getInt(ThemeUtils.getSEASON(), 0 );
-//    }
 }
