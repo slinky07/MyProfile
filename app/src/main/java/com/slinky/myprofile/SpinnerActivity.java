@@ -74,7 +74,6 @@ public class SpinnerActivity extends AppCompatActivity {
                 if (pos != 0) {
                     selectedPosition = pos;
                     isSpinnerTouched = true;
-                } else {
                 }
             }
 
