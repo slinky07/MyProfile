@@ -1,0 +1,33 @@
+@startuml
+class com.slinky.myprofile.MainActivity {
+# void onCreate(Bundle)
+# void launchSettings()
+}
+class com.slinky.myprofile.ThemeUtils {
+- {static} String FILE_NAME
+- {static} String SEASON
+- {static} int THEME_SPRING
+- {static} int THEME_SUMMER
+- {static} int THEME_AUTUMN
+- {static} int THEME_WINTER
++ {static} void onCreateSetTheme(Activity,int)
++ {static} void putSharedPreference(Activity,int)
++ {static} int getSavedTheme(Activity)
+}
+class com.slinky.myprofile.SpinnerActivity {
+- Spinner spin
+- Button btn
+- int selectedPosition
+- boolean isSpinnerTouched
+# void onCreate(Bundle)
+- void initID()
+- void initSpinner()
+- void btnListener()
+- void spinListener()
+- void launchMain()
+}
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.slinky.myprofile.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.slinky.myprofile.SpinnerActivity
+@enduml
